@@ -12,8 +12,7 @@ tickers = ["AAPL"]
 # --- Step 2: Download data ---
 data = yf.download(tickers, start="2020-01-01", end="2024-12-31")['Close']
 
-# Use one ticker at a time OR aggregate
-# Let's pick AAPL as an example
+# pick AAPL as an example
 stock = data['AAPL'].dropna()
 
 # --- Step 3: Feature Engineering ---
@@ -57,4 +56,5 @@ latest_scaled = scaler.transform(latest_features)
 prediction = model.predict(latest_scaled)
 
 print("Tomorrow’s prediction for AAPL:", "Up" if prediction[0] == 1 else "Down")
+
 
